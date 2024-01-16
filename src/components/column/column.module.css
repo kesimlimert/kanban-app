@@ -1,0 +1,16 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 25rem;
+    margin: 3rem;
+    background-color: #F2F3F4;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.title {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
