@@ -19,7 +19,12 @@ export default function Board({ data }: Props) {
   useEffect(() => {
     const storedData = localStorage.getItem("data");
     if (storedData) {
-      setColumns(JSON.parse(storedData));
+      try {
+        const parsedData = JSON.parse(storedData);
+        setColumns(parsedData);
+      } catch (error) {
+        console.error('Error parsing data from localStorage:', error);
+      }
     }
   }, []);
 
