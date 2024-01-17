@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const data = [
+const data = [
     {
         title: "Column 1",
         cards: [
