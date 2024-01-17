@@ -14,7 +14,8 @@ export default function Card({cardData, index, columnIndex}: CardProps) {
    
     return (
         <div className={styles.card}>
-            {cardData.title}
+            <p className={styles.title}>{cardData.title}</p>
+            <p>{cardData.content}</p>
         </div>
     )
 }

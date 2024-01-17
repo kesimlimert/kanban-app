@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const data = [
+export const data = [
     {
         title: "Column 1",
         cards: [
@@ -72,11 +72,5 @@ const data = [
 ];
 
 export async function GET() {
-    return NextResponse.json(data);
-}
-
-export async function POST(request: any) {
-    const { title, content } = await request.body.json();
-    data[0].cards.push({ title, content });
     return NextResponse.json(data);
 }
