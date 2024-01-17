@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./board.module.css";
 import Column from "@/components/column/column";
 import { useState } from "react";
@@ -14,11 +14,14 @@ type Props = {
 };
 
 export default function Board({ data }: Props) {
-  let storedData = null;
-  if (localStorage !== undefined && "data" in localStorage) {
-    storedData = JSON.parse(localStorage.data);
-  }
-  const [columns, setColumns] = useState(storedData ? storedData : data);
+  const [columns, setColumns] = useState<DataItem[]>(data);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("data");
+    if (storedData) {
+      setColumns(JSON.parse(storedData));
+    }
+  }, []);
 
   const saveChanges = () => {
     localStorage.setItem("data", JSON.stringify(columns));
