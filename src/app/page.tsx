@@ -1,11 +1,27 @@
+"use client"
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Board from "@/components/board/board";
 
-export default async function Home() {
-  const data = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`).then((res) => res.json());
+export default function Home() {
+  const [data, setData] = useState(null);
+
+  const fetchData = async () => {
+    const response = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`);
+    const data = await response.json();
+    return data;
+  };
+
+  useEffect(() => {
+    fetchData().then((fetchedData) => {
+      setData(fetchedData);
+      console.log(fetchedData);
+    });
+  }, []);
+
   return (
     <main className={styles.main}>
-      <Board data={data} />
+      {data ? <Board data={data} /> : <h1>Loading...</h1> }
     </main>
   );
 }
