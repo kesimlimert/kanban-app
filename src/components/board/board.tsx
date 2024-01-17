@@ -26,7 +26,7 @@ export default function Board({ data }: Props) {
         console.error('Error parsing data from localStorage:', error);
       }
     }
-  }, []);
+  }, [localStorage.getItem("data")]);
 
   const saveChanges = () => {
     localStorage.setItem("data", JSON.stringify(columns));
