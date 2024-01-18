@@ -16,14 +16,3 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Important!!!
-
-To run project locally open src/app/page.tsx file and remove `https://` from fetch url input: 
-
-```
-const fetchData = async () => {
-    const response = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`);
-    const data = await response.json();
-    return data;
-};
-```
