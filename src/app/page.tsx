@@ -7,7 +7,7 @@ export default function Home() {
   const [data, setData] = useState(null);
 
   const fetchData = async () => {
-    const response = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`);
     const data = await response.json();
     return data;
   };
